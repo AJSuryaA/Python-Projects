@@ -29,7 +29,7 @@ class Snake():
             s.penup()
             index_of_last_snake =  len(snake_position)-1
             u_x = snake_position[index_of_last_snake][0] - 10
-            print(snake_position)
+
             snake_position.append((u_x , 0))
             self.snakes.append(s)
             scoreboard.updates = False
