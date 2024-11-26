@@ -12,6 +12,3 @@ def playa_area():
     background.shapesize(30, 1)
     background.penup()
     background.goto(100, 0)
-
-
-
