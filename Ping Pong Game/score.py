@@ -5,7 +5,7 @@ class Score(Turtle):
         super().__init__()
         self.player_1_score = 0
         self.player_2_score = 0
-        self.win_score = 2
+        self.win_score = 10
         self.hideturtle()
         self.penup()
         self.update()
@@ -16,13 +16,17 @@ class Score(Turtle):
         self.r()
         self.l()
         self.h()
-
+        self.b()
 
     def a(self):
         self.color("red")
         self.goto(250, 200 )
-        self.write("Score :", align="center", font=("Arial ", 30 , "bold"))
+        self.write("Score :", align="center", font=("Arial ", 20 , "bold"))
 
+    def b(self):
+        self.color("white")
+        self.goto(-200 , 325)
+        self.write("Ping Pong Game ", align="center", font=("Arial ", 30 , "bold"))
 
     def add_score_player_1(self):
         self.player_1_score += 1
@@ -57,6 +61,7 @@ class Score(Turtle):
             self.l()
             self.r()
             self.a()
+            self.b()
 
         if self.player_2_score == self.win_score :
             self.clear()
@@ -66,6 +71,7 @@ class Score(Turtle):
             self.l()
             self.r()
             self.a()
+            self.b()
 
 
 

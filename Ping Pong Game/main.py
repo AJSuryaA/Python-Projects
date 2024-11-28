@@ -7,7 +7,7 @@ from ball import *
 start_game = True
 
 canvas = Screen()
-canvas.setup(1000,600)
+canvas.setup(1200,800)
 canvas.bgcolor("black")
 canvas.title("Ping Pong Game")
 canvas.tracer(0)
