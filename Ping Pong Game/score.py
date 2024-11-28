@@ -5,25 +5,68 @@ class Score(Turtle):
         super().__init__()
         self.player_1_score = 0
         self.player_2_score = 0
-        self.color("white")
+        self.win_score = 2
         self.hideturtle()
         self.penup()
-        self.goto(300,250)
         self.update()
 
     def update(self):
-
         self.clear()
-        self.write(f"Score : \n\n\t player_1_score : {self.player_1_score} \n\n\t  "
-                   f"player_2_score : {self.player_2_score}"
-                        , align="center", font=("Arial ", 14, "normal"))
+        self.a()
+        self.r()
+        self.l()
+        self.h()
+
+
+    def a(self):
+        self.color("red")
+        self.goto(250, 200 )
+        self.write("Score :", align="center", font=("Arial ", 30 , "bold"))
+
 
     def add_score_player_1(self):
         self.player_1_score += 1
-        print(self.player_1_score)
         self.update()
 
     def add_score_player_2(self):
         self.player_2_score += 1
-        print(self.player_2_score)
         self.update()
+
+    def r(self):
+        self.color("green")
+        self.goto(300, 100)
+        self.write(f"Player 1 : \t{self.player_1_score}", align="center", font=("Arial ", 15, "bold"))
+
+    def h(self):
+        self.color("white")
+        self.goto(300, -200)
+        self.write(f"Take {self.win_score} points to win", align="center", font=("Arial ", 15, "bold"))
+
+
+    def l(self):
+        self.color("blue")
+        self.goto(300, 0)
+        self.write(f"Player 2 : \t{self.player_2_score}", align="center", font=("Arial ", 15, "bold"))
+
+    def win(self):
+        if self.player_1_score == self.win_score :
+            self.clear()
+            self.color("red")
+            self.goto(300, -100)
+            self.write(f"player 1 Wins", align="center", font=("Arial ", 20 , "bold"))
+            self.l()
+            self.r()
+            self.a()
+
+        if self.player_2_score == self.win_score :
+            self.clear()
+            self.color("red")
+            self.goto(300, -100)
+            self.write(f"player 2 Wins", align="center", font=("Arial ", 20 , "bold"))
+            self.l()
+            self.r()
+            self.a()
+
+
+
+
