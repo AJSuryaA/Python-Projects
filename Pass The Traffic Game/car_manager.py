@@ -36,11 +36,11 @@ class CarManager:
     def check_boundary(self):
         for i in range(len(self.all_cars)- 1, -1, -1):
             if self.all_cars[i].xcor() < -300:
-                print(i)
                 self.all_cars[i].color("black")
-
-
 
     def increase_i(self):
         self.i += 2
-        self.j += 1
+        a = self.i
+        self.j.append(random.randint(0, a ))
+        print(self.i , self.j)
+

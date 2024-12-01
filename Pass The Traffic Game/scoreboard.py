@@ -7,7 +7,7 @@ class Scoreboard(Turtle):
         super().__init__()
         self.font = FONT
         self.start_score = 0
-        self.win_score = 1
+        self.win_score = 10
         self.hideturtle()
         self.update_score()
 
