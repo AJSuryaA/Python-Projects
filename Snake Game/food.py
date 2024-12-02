@@ -27,3 +27,6 @@ class Food:
             self.spawn_food()
             self.object_score.add_score()
             self.food = 0
+
+    def trigg_clear(self):
+        self.object_score.clear_score()

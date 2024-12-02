@@ -5,6 +5,7 @@ from snake import *
 from food import *
 
 
+
 object_screen = Screen()
 object_screen.setup(width= 600 , height= 600)
 
@@ -23,8 +24,8 @@ object_screen.onkey( snake_obj.right , "Right")
 object_screen.onkey( snake_obj.left , "Left")
 object_screen.onkey( snake_obj.down , "Down")
 
-game_start = True
-while game_start :
+
+while snake_obj.start_game :
     object_screen.update()
     time.sleep(0.1)
     snake_obj.move()
@@ -32,10 +33,10 @@ while game_start :
     food_obj.catch_food(snake_obj.head.xcor() ,snake_obj.head.ycor())
     snake_obj.update_snake()
     if (snake_obj.head.xcor() > 280) | (snake_obj.head.xcor() < -280) | (snake_obj.head.ycor() > 280) | (snake_obj.head.ycor() < -280) :
-        game_start = False
+        food_obj.trigg_clear()
+        snake_obj.restart_game()
     if snake_obj.collision() :
-        print("game over")
-        break
-
+        food_obj.trigg_clear()
+        snake_obj.restart_game()
 
 object_screen.exitonclick()
