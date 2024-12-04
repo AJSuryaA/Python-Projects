@@ -11,7 +11,8 @@ class Score(Turtle):
         self.hideturtle()
         self.penup()
         self.goto(-270, 260)
-        self.high_score = 0
+        with open("high_score.txt") as data:
+            self.high_score = int(data.read())
         self.update_scoreboard()
 
     def update_scoreboard(self):
@@ -27,5 +28,7 @@ class Score(Turtle):
     def clear_score(self):
         if self.current_score > self.high_score :
             self.high_score = self.current_score
+            with open("high_score.txt", mode="w") as data:
+                data.write(f"{self.current_score}")
         self.current_score = 0
         self.update_scoreboard()
