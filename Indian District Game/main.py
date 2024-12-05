@@ -36,13 +36,22 @@ def display_state(x,y):
     t.write(f"{answer}")
     list.append(answer)
 
+def generate_csv():
+    missed_states = []
+    for col in all_states:
+        if col not in list:
+            missed_states.append(col)
+    df = pd.DataFrame(missed_states,columns=["states"])
+    df.to_csv("missed_states",index=False)
+
 while True:
     ask()
+    if answer == "Exit":
+        break
     if answer in all_states:
         if answer not in list:
             a = data[data["states"] == answer ]
             score += 1
             display_state(float(a.x.item()) , float(a.y.item()))
             print(score)
-
-screen.exitonclick()
+generate_csv()
