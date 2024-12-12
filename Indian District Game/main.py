@@ -37,10 +37,7 @@ def display_state(x,y):
     list.append(answer)
 
 def generate_csv():
-    missed_states = []
-    for col in all_states:
-        if col not in list:
-            missed_states.append(col)
+    missed_states = [col for col in all_states if col not in list]
     df = pd.DataFrame(missed_states,columns=["states"])
     df.to_csv("missed_states",index=False)
 
