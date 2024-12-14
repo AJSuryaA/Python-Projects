@@ -1,7 +1,7 @@
 import tkinter
 from tkinter import Tk, Canvas, PhotoImage, Label, Entry, Button , messagebox
+import pyperclip
 
-from docutils.nodes import title
 
 from generate_password import Generate_password
 
@@ -16,9 +16,8 @@ canvas.create_image(190,180,image= img)
 canvas.grid(column= 0,row=0, columnspan= 3)
 
 password= Generate_password()
-# passw= None
+
 def generate():
-    # global passw
     passw= password.generate()
     password_input.insert(index=0, string=f"{passw}")
 
@@ -35,10 +34,14 @@ def save_data():
                             f"{website_input.get()} \n email : {email_input.get()} \n password : "
                                                               f"{password_input.get()} is it ok to save ")
         if isok:
+            p= password_input.get()
             with open("data.txt", "a") as data_text:
-                data_text.write(f"{website_input.get()}|{email_input.get()}|{password_input.get()}"+"\n")
+                data_text.write(f"{website_input.get()}|{email_input.get()}|{p}"+"\n")
             website_input.delete(0,tkinter.END)
             password_input.delete(0, tkinter.END)
+            oktocopy= messagebox.askokcancel(title="Warning", message="click ''ok'' to copy password to clipboard")
+            if oktocopy:
+                pyperclip.copy(p)
 
 
 label_website= Label(text= "Website :", font= ("Arial ", 12 ,"bold"))
